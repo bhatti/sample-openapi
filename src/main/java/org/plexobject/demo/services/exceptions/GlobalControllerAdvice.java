@@ -8,6 +8,9 @@ import java.util.UUID;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 
+import org.plexobject.demo.services.controller.CustomerController;
+import org.plexobject.demo.services.controller.OrderController;
+import org.plexobject.demo.services.controller.PaymentController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.plexobject.demo.services.controller.ProductController;
@@ -26,7 +29,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 
-@ControllerAdvice(assignableTypes = ProductController.class)
+@ControllerAdvice(assignableTypes = {CustomerController.class, OrderController.class, PaymentController.class, ProductController.class})
 public class GlobalControllerAdvice {
 	/**
 	 * Note use base class if you wish to leverage its handling.

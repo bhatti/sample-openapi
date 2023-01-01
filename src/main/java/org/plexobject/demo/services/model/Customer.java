@@ -10,10 +10,12 @@ public class Customer {
     private String id;
 
     @Size(min = 2, max = 50)
+    @Pattern(regexp = "\\w", message = "Please provide a valid first name")
     @NotBlank
     private String firstName;
 
     @Size(min = 2, max = 50)
+    @Pattern(regexp = "\\w", message = "Please provide a valid last name")
     @NotBlank
     private String lastName;
 
@@ -21,7 +23,7 @@ public class Customer {
     private String email;
 
     @NotBlank
-    @Pattern(regexp = "[\\-\\d]{9,15}", message = "Please provide a valid phone")
+    @Pattern(regexp = "1-\\d{3}-\\d{4}-\\d{4}", message = "Please provide a valid phone")
     private String phone;
 
     @NotBlank

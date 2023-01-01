@@ -52,7 +52,7 @@ public class ProductController {
 	}
 
 	@GetMapping(path = "/products")
-	public List<Product> getProductByCategory(@RequestParam @NotBlank @Size(max = 36) String category) {
-		return products.values().stream().filter(p -> p.getCategory().equals(category)).collect(Collectors.toList());
+	public List<Product> getProductByCategory(@RequestParam(name = "category", defaultValue = "") @Size(max = 36) String category) {
+		return products.values().stream().filter(p -> "".equals(category) || p.getCategory().equals(category)).collect(Collectors.toList());
 	}
 }

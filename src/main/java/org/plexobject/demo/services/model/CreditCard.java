@@ -20,11 +20,11 @@ public class CreditCard {
 
     @Size(min = 10, max = 20)
     @NotBlank
-    @Pattern(regexp = "[\\d-]{10,20}", message = "Please provide a valid credit card number")
+    @Pattern(regexp = "\\d{4}-\\d{4}-\\d{4}", message = "Please provide a valid credit card number")
     private String cardNumber;
 
     @NotBlank
-    @Pattern(regexp = "\\d{2}.\\d{4}", message = "Please provide a valid credit card expiration")
+    @Pattern(regexp = "\\d{2}/\\d{4}", message = "Please provide a valid credit card expiration")
     private String expiration;
 
     @JsonProperty

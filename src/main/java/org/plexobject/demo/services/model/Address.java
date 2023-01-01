@@ -12,11 +12,12 @@ public class Address {
     @NotBlank
     private String streetAddress;
     @Size(min = 2, max = 60)
+    @Pattern(regexp = "\\w+", message = "Please provide a valid street address")
     @NotBlank
     private String city;
     @Size(min = 2, max = 12)
     @NotBlank
-    @Pattern(regexp = "\\d{5}.?\\d{0,4}", message = "Please provide a valid zip code")
+    @Pattern(regexp = "\\d{5}", message = "Please provide a valid zip code")
     private String zipCode;
     private CountryCode countryCode;
 

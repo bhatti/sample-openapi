@@ -36,8 +36,8 @@ public class CustomerController {
     }
 
     @GetMapping(path = "/customers")
-    public List<Customer> getCustomerByEmail(@RequestParam @NotBlank @Size(max = 36) String email) {
-        return customers.values().stream().filter(p -> p.getEmail().equals(email)).collect(Collectors.toList());
+    public List<Customer> getCustomerByEmail(@RequestParam(name = "email", defaultValue = "", required = false) @NotBlank @Size(max = 36) String email) {
+        return customers.values().stream().filter(p -> "".equals(email) || p.getEmail().equals(email)).collect(Collectors.toList());
     }
 }
 

@@ -50,8 +50,8 @@ public class OrderController {
     }
 
     @GetMapping(path = "/orders")
-    public List<Order> getOrderByCustomer(@RequestParam @NotBlank @Size(max = 36) String id) {
-        return orders.values().stream().filter(p -> p.getCustomerId().equals(id)).collect(Collectors.toList());
+    public List<Order> getOrderByCustomer(@RequestParam(name = "id", defaultValue = "") @Size(max = 36) String id) {
+        return orders.values().stream().filter(p -> "".equals(id) || p.getCustomerId().equals(id)).collect(Collectors.toList());
     }
 }
 

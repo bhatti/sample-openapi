@@ -70,8 +70,8 @@ public class PaymentController {
     }
 
     @GetMapping(path = "/payments")
-    public List<Payment> getPaymentByCustomer(@RequestParam @NotBlank @Size(max = 36) String id) {
-        return payments.values().stream().filter(p -> p.getCustomerId().equals(id)).collect(Collectors.toList());
+    public List<Payment> getPaymentByCustomer(@RequestParam(name = "id", defaultValue = "") @Size(max = 36) String id) {
+        return payments.values().stream().filter(p -> "".equals(id) || p.getCustomerId().equals(id)).collect(Collectors.toList());
     }
 }
 
