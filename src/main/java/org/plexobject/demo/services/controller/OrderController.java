@@ -40,7 +40,7 @@ public class OrderController {
         return order;
     }
 
-    @GetMapping(path = "/orders/:id")
+    @GetMapping(path = "/orders/{id}")
     public Order getOrder(@PathVariable(name = "id") @NotBlank @Size(max = 36) String id) {
         Order order = orders.get(id);
         if (order == null) {

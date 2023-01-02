@@ -5,9 +5,10 @@ import org.plexobject.demo.services.exceptions.ValidationException;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.UUID;
 
 public class Customer {
-    private String id;
+    private String id = UUID.randomUUID().toString();
 
     @Size(min = 2, max = 50)
     @Pattern(regexp = "\\w", message = "Please provide a valid first name")
@@ -23,7 +24,7 @@ public class Customer {
     private String email;
 
     @NotBlank
-    @Pattern(regexp = "1-\\d{3}-\\d{4}-\\d{4}", message = "Please provide a valid phone")
+    @Pattern(regexp = "1-\\d{3}-\\d{3}-\\d{4}", message = "Please provide a valid phone")
     private String phone;
 
     @NotBlank

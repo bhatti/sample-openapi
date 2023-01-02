@@ -7,9 +7,10 @@ import javax.money.MonetaryAmount;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import java.util.UUID;
 
 public class Payment {
-    private String id;
+    private String id = UUID.randomUUID().toString();
 
     @NotBlank
     @Min(30)

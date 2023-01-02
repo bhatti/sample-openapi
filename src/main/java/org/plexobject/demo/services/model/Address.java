@@ -5,9 +5,10 @@ import org.plexobject.demo.services.exceptions.ValidationException;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.UUID;
 
 public class Address {
-    private String id;
+    private String id = UUID.randomUUID().toString();
     @Size(min = 2, max = 70)
     @NotBlank
     private String streetAddress;

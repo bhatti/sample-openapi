@@ -26,7 +26,7 @@ public class ProductController {
 		return product;
 	}
 
-	@GetMapping(path = "/products/:id")
+	@GetMapping(path = "/products/{id}")
 	public Product getProduct(@PathVariable(name = "id")  @NotBlank @Size(max = 36) String id) {
 		Product product = products.get(id);
 		if (product == null) {
@@ -35,7 +35,7 @@ public class ProductController {
 		return product;
 	}
 
-	@PostMapping(path = "/products/:id/updateQuantity/:quantity")
+	@PostMapping(path = "/products/{id}/updateQuantity/{quantity}")
 	public Product updateProductQuantity(
 			@PathVariable(name = "id")  @NotBlank @Size(max = 36) String id,
 			@PathVariable(name="quantity")  @NotBlank int quantity) {

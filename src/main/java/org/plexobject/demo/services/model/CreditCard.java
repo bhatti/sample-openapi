@@ -8,9 +8,10 @@ import javax.validation.constraints.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
+import java.util.UUID;
 
 public class CreditCard {
-    private String id;
+    private String id = UUID.randomUUID().toString();
 
     @NotBlank
     @Size(min = 30, max = 36)
@@ -31,6 +32,9 @@ public class CreditCard {
     @Min(1)
     @Max(10000)
     private MonetaryAmount balance;
+
+    public CreditCard() {
+    }
 
     public CreditCard(String customerId, CreditCardType type, String cardNumber, String expiration, MonetaryAmount balance) {
         this.customerId = customerId;

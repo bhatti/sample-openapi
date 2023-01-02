@@ -39,7 +39,7 @@ public class PaymentController {
         return payment;
     }
 
-    @PostMapping(path = "/payments/:id/:amount")
+    @PostMapping(path = "/payments/{id}/{amount}")
     public Payment charge(
             @PathVariable(name = "id") @NotBlank @Size(max = 36) String id,
             @PathVariable(name = "amount") @NotBlank MonetaryAmount amount) {
@@ -60,7 +60,7 @@ public class PaymentController {
         return payment;
     }
 
-    @GetMapping(path = "/payments/:id")
+    @GetMapping(path = "/payments/{id}")
     public Payment getPayment(@PathVariable(name = "id") @NotBlank @Size(max = 36) String id) {
         Payment payment = payments.get(id);
         if (payment == null) {

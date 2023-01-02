@@ -9,9 +9,10 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.List;
+import java.util.UUID;
 
 public class Order {
-    private String id;
+    private String id = UUID.randomUUID().toString();
     @Size(min = 2, max = 80)
     @NotBlank
     private String description;

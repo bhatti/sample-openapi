@@ -26,7 +26,7 @@ public class CustomerController {
         return customer;
     }
 
-    @GetMapping(path = "/customers/:id")
+    @GetMapping(path = "/customers/{id}")
     public Customer getCustomer(@PathVariable(name = "id") @NotBlank @Size(max = 36) String id) {
         Customer customer = customers.get(id);
         if (customer == null) {
